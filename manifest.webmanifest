@@ -1,0 +1,19 @@
+{
+  "name": "Hand Pulse",
+  "short_name": "Hand Pulse",
+  "description": "手速识别与声音反馈",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07070b",
+  "theme_color": "#07070b",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

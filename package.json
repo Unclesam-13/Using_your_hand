@@ -1,0 +1,10 @@
+{
+  "name": "hand-pulse",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/phone.mjs",
+    "lan": "node scripts/phone.mjs --lan",
+    "pack": "node scripts/pack.mjs"
+  }
+}

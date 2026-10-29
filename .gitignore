@@ -1,0 +1,8 @@
+# 自签名证书和私钥，不能公开
+certs/
+# 打包产物、编辑器和聊天记录
+*.zip
+node_modules/
+.specstory/
+.cursorindexingignore
+.vscode/

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1" />
+  <meta name="theme-color" content="#07070b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Hand Pulse" />
+  <title>Hand Pulse</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-512.png" />
+  <link rel="icon" href="icons/icon-512.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="pulse-dot" id="liveDot"></span>
+        <h1>HAND PULSE</h1>
+        <p>手机感应手速，实时发出声音</p>
+      </div>
+      <div class="top-actions">
+        <button id="btnStart" class="btn primary">开始感应</button>
+        <button id="btnMute" class="btn" disabled>静音</button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div class="viewport">
+        <canvas id="wave"></canvas>
+        <div class="vignette"></div>
+        <div class="hint" id="hint">手机请用 Chrome / Safari 打开，点「开始感应」，然后握住手机做往复动作。</div>
+      </div>
+
+      <aside class="hud">
+        <section class="meter-card">
+          <div class="meter-label">往复加速度</div>
+          <div class="speed-value" id="speedValue">0.0</div>
+          <div class="speed-unit">m/s²</div>
+          <div class="bar"><i id="speedBar"></i></div>
+          <div class="tier" id="tierName">静止</div>
+        </section>
+
+        <section class="stat-grid">
+          <div>
+            <span>频率</span>
+            <strong id="spmValue">0</strong>
+            <em>次/分</em>
+          </div>
+          <div>
+            <span>强度</span>
+            <strong id="intensityValue">0%</strong>
+            <em>声音</em>
+          </div>
+        </section>
+
+        <section class="controls">
+          <label>
+            <span class="control-head">音量 <b id="volumeText"></b></span>
+            <input id="volume" type="range" min="0" max="1" step="0.01" value="0.72" />
+          </label>
+          <label class="check">
+            <input id="strokeOn" type="checkbox" checked />
+            每次换向响一声
+          </label>
+        </section>
+
+        <section class="controls clips">
+          <div class="meter-label">档位与音频</div>
+          <p class="privacy">加速度达到某档阈值就切到该档的音频，越用力越响；手机停下自动暂停，再动从原处继续。</p>
+          <div id="clipList"></div>
+          <p class="privacy">需要 HTTPS 才能读取传感器。安卓 Chrome 可「添加到主屏幕」。</p>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
